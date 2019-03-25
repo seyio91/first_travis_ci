@@ -13,7 +13,7 @@ pipeline {
             steps { 
 			script {
 				//docker.build("seyi/myapp:${BUILD_NUMBER}-tests", "--target tests", "-f Dockerfile")
-				sh "docker build -t seyi/myapp:5-tests . --target tests"
+				sh "docker build -t seyi/myapp:${BUILD_NUMBER}-tests . --target tests"
 				sh "docker images"
 			}
 			}
@@ -22,7 +22,8 @@ pipeline {
         stage("Build") {
             steps { 
 			script {
-				docker.build("seyi/myapp:${BUILD_NUMBER}")
+				//docker.build("seyi/myapp:${BUILD_NUMBER}")
+				sh "docker build -t seyi/myapp:${BUILD_NUMBER} . --target deploy"
 				sh "docker images"
 			}
 			}
