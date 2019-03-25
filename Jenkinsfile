@@ -12,7 +12,8 @@ pipeline {
 		stage("Test - Unit Test") {
             steps { 
 			script {
-				docker.build("seyi/myapp:${BUILD_NUMBER}-tests", "--target tests", "-f Dockerfile")
+				//docker.build("seyi/myapp:${BUILD_NUMBER}-tests", "--target tests", "-f Dockerfile")
+				sh "docker build -t seyi/myapp:5-tests . --target tests"
 				sh "docker images"
 			}
 			}
