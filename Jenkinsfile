@@ -1,7 +1,9 @@
 #!/usr/bin/groovy
 
 pipeline {
-    agent any
+    agent {
+		dockerfile true
+	}
 
     options {
         disableConcurrentBuilds()
