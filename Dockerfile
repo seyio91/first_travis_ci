@@ -14,7 +14,7 @@ RUN pip install -r /src/requirements/requirements.txt
 RUN python -m pytest -v tests/test_generator.py
 
 
-FROM base AS deploy
+FROM base
 LABEL image=deploy
 COPY requirements/requirements.txt /src/requirements/requirements.txt
 RUN pip install -r /src/requirements/requirements.txt
